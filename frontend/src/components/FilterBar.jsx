@@ -50,7 +50,7 @@ export default function FilterBar({ onFilterChange }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white shadow-md rounded-lg p-4 max-w-7xl mx-auto flex flex-col mt-2 md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4"
+      className="bg-white shadow-md rounded-lg p-4 max-w-7xl mx-auto flex flex-col mt-5 md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4"
     >
       {/* Search by Title */}
       <div className="flex-1 min-w-[150px]">
