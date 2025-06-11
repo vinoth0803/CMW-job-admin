@@ -38,6 +38,13 @@ export default function JobCard({
     .map(s => s.trim())
     .filter(Boolean);
 
+    const toTitleCase = str =>
+  str
+    .toLowerCase()
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+
   return (
     <div className="relative bg-white rounded-xl shadow-md p-5 flex flex-col">
       {/* timestamp */}
@@ -46,7 +53,7 @@ export default function JobCard({
       </span>
 
       {/* Title */}
-      <h3 className="text-lg font-semibold text-gray-900 mb-4">{jobTitle}</h3>
+      <h3 className="text-lg font-semibold text-gray-900 mb-4">{toTitleCase(jobTitle)}</h3>
 
       {/* Meta row */}
       <ul className="flex flex-wrap items-center text-xs text-gray-600 space-x-2 mb-4">

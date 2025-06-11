@@ -6,7 +6,7 @@ const Navbar = ({ onCreateJobClick }) => {
   const [isOpen, setIsOpen] = useState(false); // Mobile menu state
 
   return (
-    <nav className="bg-[#FCFCFC] shadow-xs rounded-full px-4 py-3 w-10/12 justify-between mx-auto mt-4">
+    <nav className="bg-[#FCFCFC] shadow-xs rounded-full px-4 py-3 -z-20  w-10/12 justify-between mx-auto mt-4">
       <div className="container mx-auto flex justify-between items-center relative">
         {/* Logo Section */}
         <div className="flex items-center">
@@ -39,7 +39,7 @@ const Navbar = ({ onCreateJobClick }) => {
 
         {/* Mobile Menu Dropdown */}
         {isOpen && (
-          <div className="absolute top-16 left-0 w-full bg-white shadow-lg rounded-lg md:hidden">
+          <div className="absolute top-16 left-0 w-full z-50 bg-white shadow-lg rounded-lg md:hidden">
             <div className="flex flex-col items-center py-4 space-y-4">
               <a href="#" className="block text-[#303030]">Home</a>
               <a href="#" className="block text-[#303030]">Find Job</a>
