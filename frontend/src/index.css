@@ -1,0 +1,48 @@
+@import 'tailwindcss';
+@import "nouislider/dist/nouislider.css";
+*{
+  font-family: Poppins, sans-serif !important;
+}
+.input {
+  @apply w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+.btn-primary {
+  @apply bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition;
+}
+
+.btn-secondary {
+  @apply border border-gray-300 text-gray-700 px-6 py-2 rounded-md hover:bg-gray-100 transition;
+}
+
+
+/* Thin light-gray track */
+.noUi-horizontal .noUi-base {
+  background: #ddd;
+  height: 2px;           /* ~2px thick line */
+}
+
+/* Black-filled portion */
+.noUi-horizontal .noUi-connect {
+  background: #000 !important;
+}
+
+/* Round black-border handles */
+.noUi-horizontal .noUi-handle {
+  border: 4px solid #000 !important;
+  background: #fff !important;
+  width: 14px;
+  height: 14px;
+  top: -6px;             /* Center handle on the 2px track */
+  border-radius: 50%;
+}
+
+/* Remove default focus outline on handle (optional) */
+.noUi-horizontal .noUi-handle:focus {
+  box-shadow: none;
+}
+
+/* Hide internal tooltips entirely */
+.noUi-tooltip {
+  display: none !important;
+}
