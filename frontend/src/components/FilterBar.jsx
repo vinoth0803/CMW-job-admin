@@ -60,7 +60,7 @@ export default function FilterBar({ onFilterChange }) {
           placeholder="Search by Job Title, Role"
           value={title}
           onChange={e => setTitle(e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none"
+          className="w-full px-3 py-2 rounded"
         />
       </div>
 
@@ -71,7 +71,7 @@ export default function FilterBar({ onFilterChange }) {
           id="location"
           value={location}
           onChange={e => setLocation(e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded bg-white text-gray-700"
+          className="w-full px-3 py-2  bg-white text-gray-700"
         >
           <option value="">Location</option>
           <option>Chennai</option>
@@ -88,7 +88,7 @@ export default function FilterBar({ onFilterChange }) {
           id="job-type"
           value={jobType}
           onChange={e => setJobType(e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded bg-white text-gray-700"
+          className="w-full px-3 py-2  bg-white text-gray-700"
         >
           <option value="">Job type</option>
           <option>Full-time</option>
