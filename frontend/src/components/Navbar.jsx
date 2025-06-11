@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { IonIcon } from "@ionic/react";
 import { menuOutline, closeOutline } from "ionicons/icons";
+import logo from "../assets/CWB logo.png"; // Adjust the path based on your project structure
 
 const Navbar = ({ onCreateJobClick }) => {
   const [isOpen, setIsOpen] = useState(false); // Mobile menu state
@@ -10,7 +11,7 @@ const Navbar = ({ onCreateJobClick }) => {
       <div className="container mx-auto flex justify-between items-center relative">
         {/* Logo Section */}
         <div className="flex items-center">
-          <img src="/src/assets/CWB logo.png" alt="Logo" className="h-10 w-10 mr-3" />
+          <img src={logo} alt="Logo" className="h-10 w-10 mr-3" />
         </div>
 
         {/* Navigation Links */}
