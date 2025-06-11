@@ -26,6 +26,15 @@
 .noUi-horizontal .noUi-connect {
   background: #000 !important;
 }
+.noUi-target {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.noUi-horizontal {
+  height: 6px;
+}
 
 /* Round black-border handles */
 .noUi-horizontal .noUi-handle {

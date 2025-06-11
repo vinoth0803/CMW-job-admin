@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import noUiSlider from 'nouislider';
-import 'nouislider/dist/nouislider.css'; // Make sure styles are loaded
+import 'nouislider/dist/nouislider.css';
 
 export default function FilterBar({ onFilterChange }) {
   const [title, setTitle] = useState('');
   const [location, setLocation] = useState('');
   const [jobType, setJobType] = useState('');
-  const [salary, setSalary] = useState([3, 5]); // in lakhs
+  const [salary, setSalary] = useState([0, 5]);
   const sliderRef = useRef(null);
+  const debounceTimeout = useRef(null);
 
   useEffect(() => {
     if (!sliderRef.current) return;
@@ -35,27 +36,24 @@ export default function FilterBar({ onFilterChange }) {
     return () => slider.destroy();
   }, []);
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    onFilterChange({
-      jobTitle: title,
-      location,
-      jobType,
-      minSalary: salary[0] * 100000,
-      maxSalary: salary[1] * 100000,
-    });
-  };
+  // 🔁 Debounced filter handler
+  useEffect(() => {
+    clearTimeout(debounceTimeout.current);
+    debounceTimeout.current = setTimeout(() => {
+      onFilterChange({
+        jobTitle: title,
+        location,
+        jobType,
+        minSalary: salary[0] * 100000,
+        maxSalary: salary[1] * 100000,
+      });
+    }, 400); // debounce in ms
+  }, [title, location, jobType, salary]);
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="bg-white shadow-md rounded-lg p-4 max-w-7xl mx-auto flex flex-col mt-5 md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4"
-    >
-      {/* Job Title Input */}
+    <div className="bg-white shadow-md rounded-lg p-4 max-w-7xl overflow-x-hidden mx-auto flex flex-col mt-5 md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4">
       <div className="flex-1 min-w-[150px]">
-        <label className="sr-only" htmlFor="search-title">Search by title</label>
         <input
-          id="search-title"
           type="text"
           placeholder="Search by Job Title, Role"
           value={title}
@@ -64,14 +62,11 @@ export default function FilterBar({ onFilterChange }) {
         />
       </div>
 
-      {/* Location Select */}
       <div className="flex-1 min-w-[120px]">
-        <label className="sr-only" htmlFor="location">Preferred Location</label>
         <select
-          id="location"
           value={location}
           onChange={e => setLocation(e.target.value)}
-          className="w-full px-3 py-2  bg-white text-gray-700"
+          className="w-full px-3 py-2 bg-white text-gray-700"
         >
           <option value="">Location</option>
           <option>Chennai</option>
@@ -81,14 +76,11 @@ export default function FilterBar({ onFilterChange }) {
         </select>
       </div>
 
-      {/* Job Type Select */}
       <div className="flex-1 min-w-[120px]">
-        <label className="sr-only" htmlFor="job-type">Job Type</label>
         <select
-          id="job-type"
           value={jobType}
           onChange={e => setJobType(e.target.value)}
-          className="w-full px-3 py-2  bg-white text-gray-700"
+          className="w-full px-3 py-2 bg-white text-gray-700"
         >
           <option value="">Job type</option>
           <option>Full-time</option>
@@ -98,22 +90,18 @@ export default function FilterBar({ onFilterChange }) {
         </select>
       </div>
 
-      {/* Salary Range Slider */}
       <div className="flex-1 min-w-[180px]">
-        <div className="flex justify-between items-baseline">
-          <label className="text-sm font-medium">Salary Per Month</label>
-          <span className="text-sm text-gray-700">₹{salary[0]}L - ₹{salary[1]}L</span>
-        </div>
-        <div ref={sliderRef} className="mt-2" />
-      </div>
+  <div className="flex justify-between items-baseline mb-1">
+    <label className="text-sm font-medium">Salary Per Month</label>
+    <span className="text-sm text-gray-700">₹{salary[0]}L - ₹{salary[1]}L</span>
+  </div>
+  <div
+    ref={sliderRef}
+    className="mt-1 w-full h-[6px] rounded bg-gray-200" // fixed height + full width + style
+    style={{ maxWidth: '100%' }}
+  />
+</div>
 
-      {/* Submit Filter */}
-      <button
-        type="submit"
-        className="px-6 py-2 bg-blue-500 text-white rounded-lg font-medium hover:bg-blue-600 transition"
-      >
-        Filter
-      </button>
-    </form>
+    </div>
   );
 }

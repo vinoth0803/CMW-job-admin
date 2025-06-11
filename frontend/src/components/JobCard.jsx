@@ -111,7 +111,7 @@ export default function JobCard({
 
 
       {/* Apply button */}
-      <button className="mt-auto w-full py-2 bg-[#00AAFF] text-white rounded-lg font-medium hover:bg-blue-600 transition">
+      <button className="mt-auto w-full py-2 bg-[#00AAFF] text-white rounded-lg font-medium hover:translate-0.5 transition">
         Apply Now
       </button>
     </div>

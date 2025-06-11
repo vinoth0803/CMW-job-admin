@@ -16,11 +16,11 @@ const Navbar = ({ onCreateJobClick }) => {
 
         {/* Navigation Links */}
         <div className="hidden md:flex space-x-6">
-          <a href="#" className="text-[#303030] hover:bg-white hover:shadow-sm hover:px-5 hover:py-2 hover:rounded-xl transition-all duration-300">Home</a>
-          <a href="#" className="text-[#303030] hover:bg-white hover:shadow-sm hover:px-5 hover:py-2 hover:rounded-xl transition-all duration-300">Find Job</a>
-          <a href="#" className="text-[#303030] hover:bg-white hover:shadow-sm hover:px-5 hover:py-2 hover:rounded-xl transition-all duration-300">Find Talent</a>
-          <a href="#" className="text-[#303030] hover:bg-white hover:shadow-sm hover:px-5 hover:py-2 hover:rounded-xl transition-all duration-300">About us</a>
-          <a href="#" className="text-[#303030] hover:bg-white hover:shadow-sm hover:px-5 hover:py-2 hover:rounded-xl transition-all duration-300">Testimonials</a>
+          <a href="#" className="text-[#303030] hover:bg-white hover:shadow-sm hover:px-5 hover:py-2 hover:rounded-xl hover:translate-1 transition-all duration-300">Home</a>
+          <a href="#" className="text-[#303030] hover:bg-white hover:shadow-sm hover:px-5 hover:py-2 hover:rounded-xl hover:translate-1 transition-all duration-300">Find Job</a>
+          <a href="#" className="text-[#303030] hover:bg-white hover:shadow-sm hover:px-5 hover:py-2 hover:rounded-xl hover:translate-1 transition-all duration-300">Find Talent</a>
+          <a href="#" className="text-[#303030] hover:bg-white hover:shadow-sm hover:px-5 hover:py-2 hover:rounded-xl hover:translate-1 transition-all duration-300">About us</a>
+          <a href="#" className="text-[#303030] hover:bg-white hover:shadow-sm hover:px-5 hover:py-2 hover:rounded-xl hover:translate-1 transition-all duration-300">Testimonials</a>
         </div>
 
         {/* Hamburger Icon for Mobile */}
