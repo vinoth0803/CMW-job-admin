@@ -6,7 +6,8 @@ const jobRoutes = require('./routes/jobs');
 
 
 const app = express();
-app.use(cors(), express.json());
+app.use(cors({ origin: '*' }));
+app.use(express.json());
 
 
 
