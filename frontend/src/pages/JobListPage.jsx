@@ -9,6 +9,7 @@ export default function JobListPage() {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [jobUpdated, setJobUpdated] = useState(false); // 🔥 added flag
 
   const fetchJobs = async (filters = {}) => {
     setLoading(true);
@@ -24,13 +25,13 @@ export default function JobListPage() {
     }
   };
 
+  // ✅ only runs when jobUpdated toggles
   useEffect(() => {
     fetchJobs();
-  }, []);
+  }, [jobUpdated]);
 
   return (
     <>
-      {/* Main content wrapper */}
       <div className={showModal ? 'blur-sm pointer-events-none select-none transition-all duration-300' : 'transition-all duration-300'}>
         <Navbar onCreateJobClick={() => setShowModal(true)} />
         <FilterBar onFilterChange={fetchJobs} />
@@ -54,14 +55,13 @@ export default function JobListPage() {
         </div>
       </div>
 
-      {/* Modal overlay (with backdrop blur optional too) */}
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm">
           <CreateJobForm
             onClose={() => setShowModal(false)}
             onJobCreated={() => {
               setShowModal(false);
-              fetchJobs();
+              setJobUpdated(prev => !prev); // 🔥 toggle flag instead of calling fetchJobs directly
             }}
           />
         </div>
@@ -69,3 +69,4 @@ export default function JobListPage() {
     </>
   );
 }
+

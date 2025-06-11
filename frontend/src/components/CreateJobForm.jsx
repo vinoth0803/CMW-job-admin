@@ -102,11 +102,12 @@ export default function CreateJobForm({ onClose, onJobCreated }) {
             </div>
 
             {/* Salary Range */}
-            <div className="sm:col-span-2">
-              <label className="block text-sm font-medium mb-1">Salary Range (₹/month)</label>
-              <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium mb-1">
+                Salary Range (₹/Year)
+              </label>
+              <div className="grid grid-cols-2 gap-2">
                 <input
-                  id="minSalary"
                   name="minSalary"
                   type="number"
                   placeholder="₹ 0"
@@ -115,7 +116,6 @@ export default function CreateJobForm({ onClose, onJobCreated }) {
                   required
                 />
                 <input
-                  id="maxSalary"
                   name="maxSalary"
                   type="number"
                   placeholder="₹ 12,00,000"
@@ -126,9 +126,11 @@ export default function CreateJobForm({ onClose, onJobCreated }) {
               </div>
             </div>
 
-            {/* Deadline */}
-            <div className="sm:col-span-2">
-              <label htmlFor="deadline" className="block text-sm font-medium mb-1">Application Deadline</label>
+            {/* Application Deadline */}
+            <div>
+              <label htmlFor="deadline" className="block text-sm font-medium mb-1">
+                Application Deadline
+              </label>
               <input
                 id="deadline"
                 name="deadline"
@@ -138,6 +140,7 @@ export default function CreateJobForm({ onClose, onJobCreated }) {
                 required
               />
             </div>
+
           </div>
 
           {/* Job Description */}
@@ -164,6 +167,7 @@ export default function CreateJobForm({ onClose, onJobCreated }) {
               rows={3}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
               onChange={handleChange}
+              required
             />
           </div>
 
@@ -177,6 +181,7 @@ export default function CreateJobForm({ onClose, onJobCreated }) {
               rows={3}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
               onChange={handleChange}
+              required
             />
           </div>
 
