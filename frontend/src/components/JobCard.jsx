@@ -3,7 +3,7 @@ import React from 'react';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 // ← pull in your Icons
-import { UserVoiceIcon, BuildingIcon, StackIcon } from './Icon';
+import { UserAddIcon, BuildingIcon, StackIcon } from './Icon';
 
 dayjs.extend(relativeTime);
 
@@ -72,7 +72,7 @@ export default function JobCard({
       <ul className="flex flex-wrap items-center text-sm text-gray-600 space-x-4 mb-4">
         <li className="flex items-center space-x-1">
           {/* Experience icon */}
-          <UserVoiceIcon className="h-4 w-4" />
+          <UserAddIcon className="h-4 w-4" />
           <span>1–3 yr Exp</span>
         </li>
         <li className="flex items-center space-x-1">
