@@ -1,15 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import noUiSlider from 'nouislider';
 import 'nouislider/dist/nouislider.css';
-import {
-  UserIcon,
-  UserPlusIcon,
-  MapPinIcon,
-  BriefcaseIcon,
-  Square3Stack3DIcon,
-  BuildingOfficeIcon,
-  CurrencyRupeeIcon
-} from '@heroicons/react/24/outline';
+// ← Import your inline SVG components
+import { SearchIcon, MapPinIcon, UserAddIcon, UserVoiceIcon } from './Icon';
 
 export default function FilterBar({ onFilterChange }) {
   const [title, setTitle] = useState('');
@@ -62,7 +55,7 @@ export default function FilterBar({ onFilterChange }) {
   return (
     <div className="bg-white shadow-sm rounded-lg p-4 max-w-7xl overflow-x-hidden mx-auto flex flex-col mt-5 md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4">
       <div className="flex-1 min-w-[150px] relative">
-         <UserIcon className="h-5 w-5 text-gray-400 absolute left-3 top-2.5 pointer-events-none" />
+         <SearchIcon   className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 pointer-events-none" />
         <input
           type="text"
           placeholder="Search by Job Title, Role"
@@ -73,7 +66,7 @@ export default function FilterBar({ onFilterChange }) {
       </div>
 
       <div className="flex-1 min-w-[120px] relative">
-        <MapPinIcon className="h-5 w-5 text-gray-400 absolute left-3 top-2.5 pointer-events-none" />
+        <MapPinIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 pointer-events-none" />
         <select
           value={location}
           onChange={e => setLocation(e.target.value)}
@@ -88,7 +81,7 @@ export default function FilterBar({ onFilterChange }) {
       </div>
 
       <div className="flex-1 min-w-[120px] relative">
-        <UserPlusIcon className="h-5 w-5 text-gray-400 absolute left-3 top-2.5 pointer-events-none" />
+        <UserVoiceIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 pointer-events-none" />
         <select
           value={jobType}
           onChange={e => setJobType(e.target.value)}
